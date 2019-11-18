@@ -8,7 +8,6 @@ use App\Entity\Product;
 use App\Repository\OrderRepository;
 use App\Repository\ProductRepository;
 use App\Service\IpToGeoLocation\IpToGeoLocation;
-use Doctrine\Common\Persistence\ObjectManager;
 use Exception;
 use InvalidArgumentException;
 

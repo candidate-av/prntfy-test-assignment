@@ -1,6 +1,6 @@
 ## Deployment
 
-Clone, install create & populate DB
+Clone, install, create & populate DB
 ~~~
 git clone https://github.com/candidate-av/prntfy-test-assignment.git
 cd prntfy-test-assignment

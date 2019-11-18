@@ -7,7 +7,6 @@ use App\Exception\OrderCantBeCreatedException;
 use App\Repository\OrderRepository;
 use DateTime;
 use Doctrine\ORM\NonUniqueResultException;
-use Exception;
 
 class OrderValidationService
 {
@@ -59,8 +58,8 @@ class OrderValidationService
      */
     public function checkOrderCanBePlaced(Order $order)
     {
-       $this->checkMinOrderTotal($order->getTotalPrice());
-       $this->checkOrderLimitPerCountry($order->getCountry());
+        $this->checkMinOrderTotal($order->getTotalPrice());
+        $this->checkOrderLimitPerCountry($order->getCountry());
     }
 
     /**
