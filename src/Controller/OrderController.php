@@ -56,8 +56,6 @@ class OrderController extends AbstractController
             ]);
         }
 
-
-
         return $this->json([
             'error' => false,
             'data' => $order->toArray()
@@ -86,6 +84,7 @@ class OrderController extends AbstractController
 
         return $this->json([
             'error' => false,
+            'count' => count($orders),
             'data' => $this->prepareOrderListOutput($orders)
         ]);
     }

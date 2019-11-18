@@ -84,7 +84,7 @@ class OrderValidationService
         $dateTimeSince = (new DateTime())->modify($this->orderLimitForCountryTimeFrame);
         $orderCount = $this->orderRepository->getOrderCountByCountrySinceDateTime($country, $dateTimeSince);
 
-        if ($orderCount > $this->orderLimitForCountryPerTimeFrame) {
+        if ($orderCount >= $this->orderLimitForCountryPerTimeFrame) {
             throw new OrderCantBeCreatedException('Order limit from country per time frame exceeded');
         }
     }
