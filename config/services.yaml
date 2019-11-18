@@ -23,5 +23,25 @@ services:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
 
+    App\Service\IpToGeoLocation\Provider\IPStack:
+        class: App\Service\IpToGeoLocation\Provider\IPStack
+        autowire: false
+        arguments:
+            - '%env(resolve:IPSTACK_ENDPOINT_URL)%'
+            - '%env(resolve:IPSTACK_ACCESS_KEY)%'
+
+    App\Service\IpToGeoLocation\IpToGeoLocation:
+        class: App\Service\IpToGeoLocation\IpToGeoLocation
+        arguments:
+            - '@App\Service\IpToGeoLocation\Provider\IPStack'
+            - '%env(resolve:IP_TO_GEOLOCATION_DEFAULT_COUNTRY)%'
+
+    App\Service\OrderValidationService:
+        class: App\Service\OrderValidationService
+        arguments:
+            - '%env(resolve:MIN_ORDER_TOTAL)%'
+            - '%env(resolve:ORDER_LIMIT_FOR_COUNTRY_PER_TIME_FRAME)%'
+            - '%env(resolve:ORDER_LIMIT_FOR_COUNTRY_TIME_FRAME)%'
+
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
