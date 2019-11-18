@@ -26,7 +26,7 @@ curl --request POST \
   --data '{"price": 9.15,"colorCode": "gr","sizeCode": "xl","typeCode": "srt"}'
 ~~~
 
-Add Order:
+Add Order
 ~~~
 curl --request POST \
   --url http://127.0.0.1:8000/orders \
