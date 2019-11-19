@@ -18,10 +18,10 @@ class IpToGeoLocation
 
     /**
      * IpToGeoLocation constructor.
-     * @param IpToGeoLocationProvider $provider
-     * @param string $defaultCountry
+     * @param $defaultCountry
+     * @param IpToGeoLocationProvider|null $provider
      */
-    public function __construct(IpToGeoLocationProvider $provider, $defaultCountry)
+    public function __construct($defaultCountry, IpToGeoLocationProvider $provider = null)
     {
         $this->provider = $provider;
         $this->defaultCountry = $defaultCountry;
@@ -33,6 +33,10 @@ class IpToGeoLocation
      */
     public function getCountryCodeByIp($ip)
     {
+        if (is_null($this->provider)) {
+            return $this->defaultCountry;
+        }
+
         return $this->provider->getCountryCodeByIp($ip) ?? $this->defaultCountry;
     }
 }

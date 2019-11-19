@@ -58,7 +58,7 @@ class OrderService
 
         foreach ($orderProducts as $orderProduct) {
             if (empty($orderProduct['productId']) || empty($orderProduct['quantity'])) {
-                throw new InvalidArgumentException('"productId" and "quantity" are mandatory for this request');
+                throw new InvalidArgumentException('productId and quantity are mandatory for this request');
             }
 
             $product = $this->getProduct($orderProduct['productId']);

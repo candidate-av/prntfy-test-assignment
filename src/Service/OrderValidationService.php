@@ -58,8 +58,13 @@ class OrderValidationService
      */
     public function checkOrderCanBePlaced(Order $order)
     {
-        $this->checkMinOrderTotal($order->getTotalPrice());
-        $this->checkOrderLimitPerCountry($order->getCountry());
+        if (!empty($this->minOrderTotal)) {
+            $this->checkMinOrderTotal($order->getTotalPrice());
+        }
+
+        if (!empty($this->orderLimitForCountryPerTimeFrame) && $this->orderLimitForCountryTimeFrame) {
+            $this->checkOrderLimitPerCountry($order->getCountry());
+        }
     }
 
     /**

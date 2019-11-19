@@ -9,11 +9,19 @@ composer install
 bin/console doctrine:database:create
 bin/console doctrine:migrations:migrate
 bin/console doctrine:fixtures:load
+
+bin/console doctrine:database:create --env=test
+bin/console doctrine:migrations:migrate --env=test
 ~~~
 
 Run server
 ~~~
 bin/console server:run  
+~~~
+
+## Run tests
+~~~
+ php bin/phpunit
 ~~~
 
 ## Example API calls

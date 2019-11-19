@@ -99,7 +99,7 @@ class ProductService
         $productColor = $this->productColorRepository->findOneBy(['code' => $colorCode]);
 
         if (empty($productColor)) {
-            throw new ProductCantBeCreatedException('Product color does not exist');
+            throw new ProductCantBeCreatedException(ProductCantBeCreatedException::MESSAGE_PRODUCT_COLOR_DOES_NOT_EXISTS);
         }
 
         return $productColor;
@@ -115,7 +115,7 @@ class ProductService
         $productSize = $this->productSizeRepository->findOneBy(['code' => $sizeCode]);
 
         if (empty($productSize)) {
-            throw new ProductCantBeCreatedException('Product size does not exist');
+            throw new ProductCantBeCreatedException(ProductCantBeCreatedException::MESSAGE_PRODUCT_SIZE_DOES_NOT_EXISTS);
         }
         return $productSize;
     }
@@ -130,7 +130,7 @@ class ProductService
         $productType = $this->productTypeRepository->findOneBy(['code' => $typeCode]);
 
         if (empty($productType)) {
-            throw new ProductCantBeCreatedException('Product type does not exist');
+            throw new ProductCantBeCreatedException(ProductCantBeCreatedException::MESSAGE_PRODUCT_TYPE_DOES_NOT_EXISTS);
         }
 
         return $productType;
@@ -153,7 +153,7 @@ class ProductService
         );
 
         if (!empty($existingProduct)) {
-            throw new ProductCantBeCreatedException('Product with same attributes already exists');
+            throw new ProductCantBeCreatedException(ProductCantBeCreatedException::MESSAGE_PRODUCT_EXISTS);
         }
     }
 }

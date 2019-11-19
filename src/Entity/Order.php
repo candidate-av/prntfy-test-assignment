@@ -137,10 +137,10 @@ class Order
         $totalPrice = 0.00;
 
         foreach ($this->getOrderProducts() as $orderProduct) {
-            $totalPrice += ($orderProduct->getQuantity() * $orderProduct->getProduct()->getPrice());
+            $totalPrice += $orderProduct->getQuantity() * $orderProduct->getProduct()->getPrice();
         }
 
-        return $totalPrice;
+        return round($totalPrice, 2);
     }
 
     /**

@@ -33,8 +33,8 @@ services:
     App\Service\IpToGeoLocation\IpToGeoLocation:
         class: App\Service\IpToGeoLocation\IpToGeoLocation
         arguments:
-            - '@App\Service\IpToGeoLocation\Provider\IPStack'
             - '%env(resolve:IP_TO_GEOLOCATION_DEFAULT_COUNTRY)%'
+            - '@App\Service\IpToGeoLocation\Provider\IPStack'
 
     App\Service\OrderValidationService:
         class: App\Service\OrderValidationService
